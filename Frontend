@@ -1,0 +1,28 @@
+// App.js
+import React, { useState } from 'react';
+import TextInput from './TextInput';
+import MultiSelectDropdown from './MultiSelectDropdown';
+import FilteredOutput from './FilteredOutput';
+import axios from 'axios';
+
+function App() {
+  const [jsonInput, setJsonInput] = useState('');
+  const [filters, setFilters] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async () => {
+    // ... API call and handle response
+  };
+
+  return (
+    <div>
+      <TextInput value={jsonInput} onChange={setJsonInput} onSubmit={handleSubmit} />
+      <MultiSelectDropdown options={['Alphabets', 'Numbers', 'Highest Alphabet']} onChange={setFilters} />
+      <FilteredOutput data={filteredData} />
+      {error && <div>Error: {error}</div>}
+    </div>
+  );
+}
+
+export default App;
